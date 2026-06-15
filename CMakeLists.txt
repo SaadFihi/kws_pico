@@ -32,6 +32,7 @@ project(kws_pico C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
+add_subdirectory(tflite-micro)
 
 # Add executable. Default name is the project name, version 0.1
 
@@ -47,7 +48,6 @@ pico_enable_stdio_usb(kws_pico 0)
 # Add the standard library to the build
 target_link_libraries(kws_pico
         pico_stdlib)
-
 # Add the standard include files to the build
 target_include_directories(kws_pico PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
