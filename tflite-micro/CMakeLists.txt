@@ -6,7 +6,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
   # Specify the target board 
-  set(PICO_BOARD pico)
+  if(NOT PICO_BOARD)
+    set(PICO_BOARD pico)
+  endif()
  
   if(DEFINED PICO_SDK_PATH AND EXISTS "${PICO_SDK_PATH}/external/pico_sdk_import.cmake")
       include("${PICO_SDK_PATH}/external/pico_sdk_import.cmake")

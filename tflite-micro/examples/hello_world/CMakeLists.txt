@@ -56,8 +56,8 @@ target_link_libraries(
   hardware_pwm
 )
 
-pico_enable_stdio_usb(hello_world_test 1)
-pico_enable_stdio_uart(hello_world_test 0)
+pico_enable_stdio_usb(hello_world_test 0)
+pico_enable_stdio_uart(hello_world_test 1)
 
 pico_add_extra_outputs(hello_world_test)
 

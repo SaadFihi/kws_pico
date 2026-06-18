@@ -25,12 +25,13 @@ namespace {
 // For Arm Cortex-M devices, calling SYS_WRITE0 will output the zero-terminated
 // string pointed to by R1 to any debug console that's attached to the system.
 void SysWriteDebugConsole(const char* s) {
-  asm("mov r0, #0x04\n"  // SYS_WRITE0
+  /*asm("mov r0, #0x04\n"  // SYS_WRITE0
       "mov r1, %[str]\n"
       "bkpt #0xAB\n"
       :
       : [str] "r"(s)
-      : "r0", "r1");
+      : "r0", "r1");*/
+      uart_puts(1,s);
 }
 #endif  // TF_LITE_STRIP_ERROR_STRINGS
 

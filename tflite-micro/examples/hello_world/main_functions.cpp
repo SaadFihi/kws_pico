@@ -26,6 +26,14 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 
 #include "pico/stdlib.h"
+#include <stdio.h>
+#include "hardware/uart.h"
+
+#define UART_ID uart1
+#define BAUD_RATE 115200
+
+#define UART_TX_PIN 26 // GP0
+#define UART_RX_PIN 27 // GP1
 
 // Globals, used for compatibility with Arduino-style sketches.
 namespace {
@@ -41,6 +49,14 @@ uint8_t tensor_arena[kTensorArenaSize];
 
 // The name of this function is important for Arduino compatibility.
 void setup() {
+  // Added code 
+  uart_init(UART_ID, BAUD_RATE);
+
+    // 2. Weisen Sie die GPIO-Pins der UART-Funktion zu
+  gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+  gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+  uart_puts(UART_ID,"hello/n");
+
   tflite::InitializeTarget();
 
   // Map the model into a usable data structure. This doesn't involve any

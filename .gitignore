@@ -1,51 +1,20 @@
-build
-!.vscode/*
 # Build output
 build/
+build_pico/
 
-# TFLM third-party deps (downloaded by setup_pico.sh — don't commit)
+# TFLM third-party deps (downloaded by setup.sh — don't commit)
 tflite-micro/third_party/
 
-# VS Code / Pico extension local config
-.vscode/
+# Compiled / binary artifacts
 *.uf2
 *.elf
 *.bin
 *.dis
 *.map
 
-# OS junk
-Thumbs.db
-.DS_Store
-# Build output
-build/
-
-# TFLM third-party deps (downloaded by setup_pico.sh — don't commit)
-tflite-micro/third_party/
-
 # VS Code / Pico extension local config
 .vscode/
-*.uf2
-*.elf
-*.bin
-*.dis
-*.map
-
-# OS junk
-Thumbs.db
-.DS_Stor# Build output
-build/
-
-# TFLM third-party deps (downloaded by setup_pico.sh — don't commit)
-tflite-micro/third_party/
-
-# VS Code / Pico extension local config
-.vscode/
-*.uf2
-*.elf
-*.bin
-*.dis
-*.map
+!.vscode/extensions.json
 
 # OS junk
 Thumbs.db
